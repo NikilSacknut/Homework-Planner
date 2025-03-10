@@ -5,10 +5,13 @@ root = tk.Tk()
 root.geometry("800x500")
 root.title("My first GUI")
 
-label = tk.Label(root, text="Hello World", font=('Arial', 18))
+label = tk.Label(root, text="Hello World", font=('Arial', 18)) 
 label.pack(padx=20, pady=20)
 
-textbox = tk.Text(root, font=('Arial', 16))
+textbox = tk.Text(root, height=3, font=('Arial', 16))
 textbox.pack()
+
+myentry =tk.Entry(root)
+myentry.pack()
 
 root.mainloop()
