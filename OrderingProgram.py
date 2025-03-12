@@ -3,15 +3,26 @@ import tkinter as tk
 root = tk.Tk()
 
 root.geometry("800x500")
-root.title("My first GUI")
+root.title("Rosmini Homework Planner")
 
-label = tk.Label(root, text="Hello World", font=('Arial', 18)) 
-label.pack(padx=20, pady=20)
+def add_to_list():
+    text = entry.get()
+    if text: 
+        text_list.insert(tk.END, text)
+        entry.delete(0, tk.END)
 
-textbox = tk.Text(root, height=3, font=('Arial', 16))
-textbox.pack(padx=10, pady=10)
 
-button = tk.Button(root, text="Click Me!", font=('Arial', 18))
-button.pack(padx =10, pady=10)
+
+frame = tk.Frame(root) #Container for window 
+frame.grid(row=0, column=0)
+
+entry = tk.Entry(frame) #pass onto frame which includes it
+entry.grid(row=0, column=0)
+
+entry_btn = tk.Button(frame, text="Add", command=add_to_list)
+entry_btn.grid(row=0, column=1)
+
+text_list = tk.Listbox(frame)
+text_list.grid(row=1, column=0)
 
 root.mainloop()
