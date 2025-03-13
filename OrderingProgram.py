@@ -11,10 +11,10 @@ def register():
     username = StringVar()
     password = StringVar()
 
-    Label(text = "Username * ").pack() 
-    Entry(textvariable = username)
-    Label(text = "Password * ").pack() 
-    Entry(textvariable = password)
+    Label(screen1, text = "Username * ").pack() 
+    Entry(screen1, textvariable = username)
+    Label(screen1, text = "Password * ").pack() 
+    Entry(screen1, textvariable = password)
 
 
 def login():
@@ -28,31 +28,13 @@ def main_screen():
     screen.title("Rosmini Homework Planner 2025")
     Label(text = "Rosmini Homework Planner", bg="grey", width="300", height="2", font = ("Calibri", 13)).pack()
     Label(text = "").pack()
-    Button(text = "Login", height="2", width="30", command="login").pack()
+    Button(text = "Login", height="2", width="30", command=login).pack()
     Label(text = "").pack() 
-    Button(text = "Register", height = "2", width = "30", command="register").pack()
+    Button(text = "Register", height = "2", width = "30", command=register).pack()
 
     screen.mainloop()
 
 main_screen()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -108,5 +90,24 @@ class InputForm(ttk.Frame):
 
 if __name__ == "__main__":
     main()
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
