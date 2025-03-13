@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
+import sqlite3
+
 
 def main():
     app = Application()
@@ -22,7 +24,7 @@ class Application(tk.Tk):
         frame2.grid(row=0, column=1, sticky="nsew", padx=5, pady=5)
 
         
-
+#input form frame
 class InputForm(ttk.Frame):
     def __init__(self, parent):
         super().__init__(parent)
