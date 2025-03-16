@@ -43,6 +43,9 @@ def register():
     Label(screen1, text = "").pack() 
     Button(screen1, text= "Register", width= 10, height= 1, command= register_user).pack()
 
+
+def login_verify():
+    print("working...")
 #login function which runs the login box
 def login():
     global screen2 
@@ -61,8 +64,13 @@ def login():
     Label(screen1, text= "Username").pack()
     username_entry1 = Entry(screen2,textvariable= username_verify)
     username_entry1.pack()
-    Label(screen1, text="Password").pack()
-    password_entry
+    Label(screen2, text="").pack()
+    Label(screen2, text="Password").pack()
+    password_entry1 = Entry(screen2, textvariable = password_verify)
+    password_entry1.pack()
+    Label(screen2, text= "").pack()
+    Button(screen2, text="Login", width= 10, height= 1, command = login_verify).pack()
+    
 
 #Main screen Page (the login page)
 def main_screen():
