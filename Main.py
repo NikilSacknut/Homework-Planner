@@ -1,22 +1,24 @@
 from tkinter import *
 from tkinter import ttk
 
+
 def register_user():
     #files and storing user data
     username_info = username.get()
     password_info = password.get()
 
-    file=open(username_info+".txt", "w")
-    file.write(username_info)
+    file=open(username_info, "w")
+    file.write(username_info+"\n")
     file.write(password_info)
     file.close()
 
     username_entry.delete(0, END)
     password_entry.delete(0, END)
-
-    Label(text="Registration Success")
+#Registration successs message
+    Label(screen1, text="Registration Success", fg="green", font = ("calibri", 11)).pack()
 
 def register():
+    global screen1
     screen1 = Toplevel(screen)
     screen1.title("Register")
     screen1.geometry("300x250")
@@ -41,9 +43,26 @@ def register():
     Label(screen1, text = "").pack() 
     Button(screen1, text= "Register", width= 10, height= 1, command= register_user).pack()
 
-
+#login function which runs the login box
 def login():
-    print("Login session started")
+    global screen2 
+    screen2 = Toplevel(screen)
+    screen2.title("Login")
+    screen2.geometry("300,250")
+    Label(screen1, text="Please enter details below to login").pack()
+    Label(screen1, text= "").pack()
+    
+    global username_verify
+    global password_verify
+
+    username_verify = StringVar()
+    password_verify = StringVar()
+
+    Label(screen1, text= "Username").pack()
+    username_entry1 = Entry(screen2,textvariable= username_verify)
+    username_entry1.pack()
+    Label(screen1, text="Password").pack()
+    password_entry
 
 #Main screen Page (the login page)
 def main_screen():
