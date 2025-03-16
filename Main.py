@@ -46,14 +46,15 @@ def register():
 
 def login_verify():
     print("working...")
+
 #login function which runs the login box
 def login():
     global screen2 
     screen2 = Toplevel(screen)
     screen2.title("Login")
-    screen2.geometry("300,250")
-    Label(screen1, text="Please enter details below to login").pack()
-    Label(screen1, text= "").pack()
+    screen2.geometry("300x250")
+    Label(screen2, text="Please enter details below to login").pack()
+    Label(screen2, text= "").pack()
     
     global username_verify
     global password_verify
@@ -61,7 +62,7 @@ def login():
     username_verify = StringVar()
     password_verify = StringVar()
 
-    Label(screen1, text= "Username").pack()
+    Label(screen2, text= "Username").pack()
     username_entry1 = Entry(screen2,textvariable= username_verify)
     username_entry1.pack()
     Label(screen2, text="").pack()
