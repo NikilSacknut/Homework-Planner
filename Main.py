@@ -5,6 +5,12 @@ import os
 def delete2():
     screen3.destroy()
 
+def delete3():
+    screen4.destroy()
+
+def delete4():
+    screen5.destroy()
+
 def login_sucess():
     global screen3
     screen3 = Toplevel(screen)
@@ -15,11 +21,23 @@ def login_sucess():
 
 
 def password_not_recognised():
-    print("working")
+    global screen4
+    screen4 = Toplevel(screen)
+    screen4.title("Password Error")
+    screen4.geometry("150x100")
+    Label(screen4, text="Password Error").pack()
+    Button(screen4, text= "OK", command=delete3).pack()
+
 
 
 def user_not_found():
-    print("working")
+    global screen5
+    screen5 = Toplevel(screen)
+    screen5.title("User Not Found")
+    screen5.geometry("150x100")
+    Label(screen5, text="User Not Found").pack()
+    Button(screen5, text= "OK", command=delete4).pack()
+
 
 
 def register_user():
@@ -56,7 +74,7 @@ def login_verify():
         if password1 in verify:
            login_sucess()
         else:
-           passowrd_not_recognised()
+           password_not_recognised()
     
     else:
         user_not_found()
