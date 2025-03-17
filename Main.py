@@ -1,8 +1,30 @@
 from tkinter import *
 from tkinter import ttk
+import os
+
+def delete2():
+    screen3.destroy()
+
+def login_sucess():
+    global screen3
+    screen3 = Toplevel(screen)
+    screen3.title("sucess")
+    screen3.geometry("150x100")
+    Label(screen3, text="Login Sucess").pack()
+    Button(screen3, text= "OK", command=delete2).pack()
+
+
+def password_not_recognised():
+    print("working")
+
+
+def user_not_found():
+    print("working")
 
 
 def register_user():
+    print("working")
+
     #files and storing user data
     username_info = username.get()
     password_info = password.get()
@@ -14,8 +36,32 @@ def register_user():
 
     username_entry.delete(0, END)
     password_entry.delete(0, END)
+
 #Registration successs message
     Label(screen1, text="Registration Success", fg="green", font = ("calibri", 11)).pack()
+
+
+#function which verifies if youve logged in or not 
+def login_verify():
+    username1 = username_verify.get()
+    password1 = password_verify.get()
+    username_entry1.delete(0,END)
+    password_entry1.delete(0, END)
+
+# if statements to verify the username and password
+    list_of_files = os.listdir()
+    if username1 in list_of_files:
+        file1 = open(username1, "r")
+        verify = file1.read().splitlines()
+        if password1 in verify:
+           login_sucess()
+        else:
+           passowrd_not_recognised()
+    
+    else:
+        user_not_found()
+
+
 
 def register():
     global screen1
@@ -23,11 +69,12 @@ def register():
     screen1.title("Register")
     screen1.geometry("300x250")
 
-#Global variables 
+
     global username
     global password
     global username_entry
     global password_entry
+
     username = StringVar()
     password = StringVar()
 
@@ -44,8 +91,8 @@ def register():
     Button(screen1, text= "Register", width= 10, height= 1, command= register_user).pack()
 
 
-def login_verify():
-    print("working...")
+
+
 
 #login function which runs the login box
 def login():
@@ -61,6 +108,10 @@ def login():
 
     username_verify = StringVar()
     password_verify = StringVar()
+
+    
+    global username_entry1
+    global password_entry1
 
     Label(screen2, text= "Username").pack()
     username_entry1 = Entry(screen2,textvariable= username_verify)
@@ -79,7 +130,7 @@ def main_screen():
     screen = Tk()
     screen.geometry("300x250")
     screen.title("Rosmini Homework Planner 2025")
-    Label(text = "Rosmini Homework Planner", bg="grey", width="300", height="2", font = ("Calibri", 13)).pack()
+    Label(text="Rosmini Homework Planner", bg="blue", fg="red", width="300", height="2", font=("Calibri", 15), padx=10, pady=10).pack()
     Label(text = "").pack()
     Button(text = "Login", height="2", width="30", command=login).pack()
     Label(text = "").pack() 
