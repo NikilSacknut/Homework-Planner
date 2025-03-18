@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from PIL import ImageTk, Image 
 import os
 
 def delete2():
@@ -148,6 +149,10 @@ def main_screen():
     screen = Tk()
     screen.geometry("300x250")
     screen.title("Rosmini Homework Planner 2025")
+
+
+
+
     Label(text="Rosmini Homework Planner", bg="blue", fg="red", width="300", height="2", font=("Calibri", 15), padx=10, pady=10).pack()
     Label(text = "").pack()
     Button(text = "Login", height="2", width="30", command=login).pack()
