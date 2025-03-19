@@ -14,6 +14,14 @@ def delete4():
 
 def session():
     screen8 = Toplevel(screen)
+    screen8.title("Dashboard")
+    screen8.geometry("400x400")
+    Label(screen8, text = "Welcome to Dashboard!").pack()
+    Button(screen8, text = "Create note").pack()
+    Button(screen8, text = "View note").pack()
+    Button(screen8, text = "Delete note").pack()
+
+
 
 def login_sucess():
     session()
