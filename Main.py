@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
-from PIL import ImageTk, Image 
 import os
+import tkinter as tk
 
 def delete2():
     screen3.destroy()
@@ -12,15 +12,19 @@ def delete3():
 def delete4():
     screen5.destroy()
 
+def session():
+    screen8 = Toplevel(screen)
+
 def login_sucess():
-    global screen3
-    screen3 = Toplevel(screen)
-    screen3.title("sucess")
-    screen3.geometry("150x100")
-    Label(screen3, text="Login Sucess").pack()
-    Button(screen3, text= "OK", command=delete2).pack()
+    session()
+    
 
 
+
+
+
+
+  
 def password_not_recognised():
     global screen4
     screen4 = Toplevel(screen)
@@ -163,66 +167,6 @@ def main_screen():
     screen.mainloop()
 
 main_screen()
-
-
-
-
-
-
-def main():
-    app = Application()
-    app.mainloop()
-
-
-class Application(tk.Tk): 
-    def __init__(self):
-        super().__init__()
-        self.title("Rosmini Homework Planner")
-        
-        self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=3)
-        self.rowconfigure(0, weight=1) 
-
-        frame = InputForm(self) #Container for window 
-        frame.grid(row=0, column=0, sticky="nsew", padx=5, pady=5)
-
-        frame2 = InputForm(self) #Container for window 
-        frame2.grid(row=0, column=1, sticky="nsew", padx=5, pady=5)
-
-        
-#input form frame
-class InputForm(ttk.Frame):
-    def __init__(self, parent):
-        super().__init__(parent)
-
-        self.columnconfigure(0, weight=1)
-        self.rowconfigure(1, weight=1)
-
-        self.entry = ttk.Entry(self) #pass onto frame which includes it
-        self.entry.grid(row=0, column=0, sticky="ew")
-
-        self.entry.bind("<Return>", self.add_to_list) #Call back and addes keyboard function
-
-        self.entry_btn = ttk.Button(self, text="Add", command=self.add_to_list)
-        self.entry_btn.grid(row=0, column=1)  
-
-        self.text_list = tk.Listbox(self)
-        self.text_list.grid(row=1, column=0, columnspan=2, sticky="nsew")
-
-    def add_to_list(self, event=None):
-        text = self.entry.get()
-        if text:
-            self.text_list.insert(tk.END, text)
-            self.entry.delete(0, tk.END)
-
-
-if __name__ == "__main__":
-    main()
-
-    
-
-
-
 
 
 
