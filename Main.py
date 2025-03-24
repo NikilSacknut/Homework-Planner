@@ -12,8 +12,21 @@ def delete3():
 def delete4():
     screen5.destroy()
 
+def saved():
+    screen10 = Toplevel(screen)
+    screen10.title("Saved")
+    screen10.geometry("100x100")
+    Label(screen10, text= "Saved").pack()
+
 def save():
-    print("save")
+    filename = raw_filename.get()
+    notes = raw_notes.get()
+
+    data = open(filename, "w")
+    data.write(notes)
+    data.close() 
+
+    saved()
 
 def create_notes():
     global raw_filename
@@ -28,7 +41,7 @@ def create_notes():
     Entry(screen9, textvariable= raw_filename).pack()
     Label(screen9 , text= "Please enter the notes for the file below :").pack()
     Entry(screen9, textvariable= raw_notes).pack()
-    Button(text= "Save", command= save).pack()
+    Button(screen9 ,text= "Save", command= save).pack()
 
     
 def session():
