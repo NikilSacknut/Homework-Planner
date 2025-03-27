@@ -44,13 +44,27 @@ def create_notes():
     Button(screen9 ,text= "Save", command= save).pack()
 
     
+def view_notes():
+    screen11 = Toplevel(screen)
+    screen11.title("Dashboard")
+    screen11.geometry("400x400")
+    all_files = os.listdir()     #operating system list directory for finding the files to view for the program 
+    Label(screen11, "please use one of the filenames below").pack()
+    Label(screen11, text = all_files).pack()
+
+
+
+    
+    
+    
+
 def session():
     screen8 = Toplevel(screen)
     screen8.title("Dashboard")
     screen8.geometry("400x400")
     Label(screen8, text = "Welcome to Dashboard!").pack()
     Button(screen8, text = "Create note", command= create_notes).pack()
-    Button(screen8, text = "View note").pack()
+    Button(screen8, text = "View note", command = view_notes).pack()
     Button(screen8, text = "Delete note").pack()
 
 
@@ -58,8 +72,6 @@ def session():
 def login_sucess():
     session()
     
-
-
 
 
 
