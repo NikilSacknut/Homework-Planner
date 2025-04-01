@@ -43,7 +43,16 @@ def create_notes():
     Entry(screen9, textvariable= raw_notes).pack()
     Button(screen9 ,text= "Save", command= save).pack()
 
-    
+def view_notes1():
+    filename1 = raw_filename1.get()
+    data = open(filename1, "r")
+    data = data.read()
+    screen12 = Toplevel(screen)
+    screen12.title("Dashboard")
+    screen12.geometry("400x400")
+    Label(screen12, "data1").pack()
+    Label(screen12, text = all_files).pack()
+
 def view_notes():
     screen11 = Toplevel(screen)
     screen11.title("Dashboard")
@@ -51,6 +60,10 @@ def view_notes():
     all_files = os.listdir()     #operating system list directory for finding the files to view for the program 
     Label(screen11, "please use one of the filenames below").pack()
     Label(screen11, text = all_files).pack()
+    global raw_filename1
+    raw_filename1 = StringVar()
+    Entry(screen11, textvariable=raw_filename1).pack()
+    Button(screen11, command=view_notes1, text = "OK").pack()
 
 
 
