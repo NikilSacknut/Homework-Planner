@@ -49,7 +49,8 @@ def view_notes1():
     screen12 = Toplevel(screen)
     screen12.title("Dashboard")
     screen12.geometry("400x400")
-    Label(screen12, text = "data1").pack()
+    Label(screen12, text = data1).pack()
+
 
 def view_notes():
     screen11 = Toplevel(screen)
@@ -62,6 +63,29 @@ def view_notes():
     raw_filename1 = StringVar()
     Entry(screen11, textvariable=raw_filename1).pack()
     Button(screen11, command=view_notes1, text = "OK").pack()
+
+def delete_note1():
+    filename3 = raw_filename2.get()
+    os.remove(filename3)
+    screen14 = Toplevel(screen)
+    screen14.title("Notes")
+    screen14.geometry("400x400")
+    Label(screen14, text = filename3+"removed").pack()
+
+
+def delete_note():
+    screen13 = Toplevel(screen)
+    screen13.title("Dashboard")
+    screen13.geometry("400x400")
+    all_files = os.listdir()     #operating system list directory for finding the files to view for the program 
+    Label(screen13, text="please use one of the filenames below").pack()
+    Label(screen13, text = all_files).pack()
+    global raw_filename2
+    raw_filename2 = StringVar()
+    Entry(screen13, textvariable=raw_filename1).pack()
+    Button(screen13, command=delete_note1, text = "OK").pack()
+
+
 
 
 
@@ -77,7 +101,7 @@ def session():
     Label(screen8, text = "Welcome to Dashboard!").pack()
     Button(screen8, text = "Create note", command= create_notes).pack()
     Button(screen8, text = "View note", command = view_notes).pack()
-    Button(screen8, text = "Delete note").pack()
+    Button(screen8, text = "Delete notes", command= delete_note).pack()
 
 
 
